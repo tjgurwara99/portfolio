@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Welcome To The Secret Garden</title>
+    <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville" rel="stylesheet">
+    {%  load static  %}
+    <script src="{% static 'node_modules/jquery/dist/jquery.js' %}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    {#    <link href="{%  static 'node_modules/FlipClock-master/compiled/flipclock.css' %}">#}
+    <style>
+
+
+        html {
+            height: 100%;
+            background-image: url('/static/paper.png');
+            margin: 0;
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        body {
+            height: 100%;
+            margin: 0;
+        }
+        .main {
+            overflow: scroll;
+        }
+
+        .wrapper-header {
+            text-align: center;
+        }
+
+        .header-image {
+            width: 50%;
+        }
+
+        .nav-image-music {
+            position: absolute;
+            height: 2vw;
+            left: 31vw;
+            -webkit-transform: rotate(20deg) translateY(-1vw);
+            -moz-transform: rotate(20deg) translateY(-1vw);
+            -o-transform: rotate(20deg) translateY(-1vw);
+            -ms-transform: rotate(20deg) translateY(-1vw);
+            transform: rotate(20deg) translateY(-1vw);
+        }
+        .nav-image-music:hover {
+            position: absolute;
+            height: 2vw;
+            left: 31vw;
+            -webkit-transform: scale(1.5) rotate(0deg) translateY(-1vw);
+            -moz-transform: scale(1.5) rotate(0deg) translateY(-1vw);
+            -o-transform: scale(1.5) rotate(0deg) translateY(-1vw);
+            -ms-transform: scale(1.5) rotate(0deg) translateY(-1vw);
+            transform:  scale(1.5) rotate(0deg) translateY(-1vw);
+            transition: transform.2s;
+        }
+        .nav-image-sponsors {
+            position: absolute;
+            height: 2vw;
+            left: 37vw;
+            -webkit-transform: rotate(-15deg) translateY(-0.8vw);
+            -moz-transform: rotate(-15deg) translateY(-0.8vw);
+            -o-transform: rotate(-15deg) translateY(-0.8vw);
+            -ms-transform: rotate(-15deg) translateY(-0.8vw);
+            transform: rotate(-15deg) translateY(-0.8vw);
+        }
+        .nav-image-sponsors:hover {
+            position: absolute;
+            height: 2vw;
+            left: 37vw;
+            -webkit-transform: scale(1.5) rotate(0deg) translateY(-1vw);
+            -moz-transform: scale(1.5) rotate(0deg) translateY(-1vw);
+            -o-transform: scale(1.5) rotate(0deg) translateY(-1vw);
+            -ms-transform: scale(1.5) rotate(0deg) translateY(-1vw);
+            transform:  scale(1.5) rotate(0deg) translateY(-1vw);
+            transition: transform.2s;
+        }
+        .nav-image-tickets{
+            position: absolute;
+            height: 2vw;
+            left: 43vw;
+            -webkit-transform: translateY(-1vw);
+            -moz-transform: translateY(-1vw);
+            -o-transform: translateY(-1vw);
+            -ms-transform: translateY(-1vw);
+            transform: translateY(-1vw);
+        }
+        .nav-image-tickets:hover {
+            position: absolute;
+            height: 2vw;
+            left: 43vw;
+            -webkit-transform: scale(1.5) rotate(0deg) translateY(-1vw);
+            -moz-transform: scale(1.5) rotate(0deg) translateY(-1vw);
+            -o-transform: scale(1.5) rotate(0deg) translateY(-1vw);
+            -ms-transform: scale(1.5) rotate(0deg) translateY(-1vw);
+            transform:  scale(1.5) rotate(0deg) translateY(-1vw);
+            transition: transform.2s;
+        }
+        .nav-image-food_drinks{
+            position: absolute;
+            height: 2vw;
+            left: 49vw;
+            -webkit-transform: rotate(-10deg) translateY(-0.25vw);
+            -moz-transform: rotate(-10deg) translateY(-0.25vw);
+            -o-transform: rotate(-10deg) translateY(-0.25vw);
+            -ms-transform: rotate(-10deg) translateY(-0.25vw);
+            transform: rotate(-10deg) translateY(-0.25vw);
+        }
+        .nav-image-food_drinks:hover {
+            position: absolute;
+            height: 2vw;
+            left: 49vw;
+            -webkit-transform: scale(1.5) rotate(0deg) translateY(-1vw);
+            -moz-transform: scale(1.5) rotate(0deg) translateY(-1vw);
+            -o-transform: scale(1.5) rotate(0deg) translateY(-1vw);
+            -ms-transform: scale(1.5) rotate(0deg) translateY(-1vw);
+            transform:  scale(1.2) rotate(0deg) translateY(-1vw);
+            transition: transform.2s;
+        }
+        .nav-image-committee{
+            position: absolute;
+            height: 2vw;
+            left: 59vw;
+            -webkit-transform: rotate(20deg) translateY(-1vw);
+            -moz-transform: rotate(20deg) translateY(-1vw);
+            -o-transform: rotate(20deg) translateY(-1vw);
+            -ms-transform: rotate(20deg) translateY(-1vw);
+            transform: rotate(20deg) translateY(-1vw);
+        }
+        .nav-image-committee:hover {
+            position: absolute;
+            height: 2vw;
+            left: 59vw;
+            -webkit-transform: scale(1.5) rotate(0deg) translateY(-1vw);
+            -moz-transform: scale(1.5) rotate(0deg) translateY(-1vw);
+            -o-transform: scale(1.5) rotate(0deg) translateY(-1vw);
+            -ms-transform: scale(1.5) rotate(0deg) translateY(-1vw);
+            transform:  scale(1.2) rotate(0deg) translateY(-1vw);
+            transition: transform.2s;
+        }
+        .nav-image-about{
+            position: absolute;
+            height: 2vw;
+            left: 67vw;
+            -webkit-transform: rotate(-30deg) translateY(-1vw);
+            -moz-transform: rotate(-30deg) translateY(-1vw);
+            -o-transform: rotate(-30deg) translateY(-1vw);
+            -ms-transform: rotate(-30deg) translateY(-1vw);
+            transform: rotate(-30deg) translateY(-1vw);
+        }
+        .nav-image-about:hover {
+            position: absolute;
+            height: 2vw;
+            left: 67vw;
+            -webkit-transform: scale(1.5) rotate(0deg) translateY(-1vw);
+            -moz-transform: scale(1.5) rotate(0deg) translateY(-1vw);
+            -o-transform: scale(1.5) rotate(0deg) translateY(-1vw);
+            -ms-transform: scale(1.5) rotate(0deg) translateY(-1vw);
+            transform:  scale(1.5) rotate(0deg) translateY(-1vw);
+            transition: transform.2s;
+        }
+        .body-wrapper {
+            margin-top: 5%;
+            overflow: scroll;
+            position: relative;
+            text-align: center;
+            font-size: 2.4vw;
+        }
+        .body-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            box-sizing: border-box;
+            height: 35vh;
+            width: 35vw;
+            transform: translate(-52%, -40%); {# change this when information is available #}
+            color: #004d30;
+        }
+        .vines {
+	width: 60vw;
+            overflow: scroll;
+        }
+        .footer {
+            width: 100%;
+            bottom: 0;
+            height: 20px;
+            text-align: center;
+        }
+        .header-image-indicator {
+            width: auto;
+	    height: 10%;
+	margin: 0 auto;
+            position: absolute;
+            overflow: visible;
+            top: 22%;
+		transform: translate(22.5vw, 0);
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+            position: relative;
+        }
+
+        .topnav #mylinks {
+            display: none;
+        }
+
+        .topnav a {
+            color: white;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+            display: block;
+        }
+
+        .topnav a.icon {
+            background: black;
+            display: block;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .active {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .dropbtn {
+            background-color: #dfc29000;
+            color: #004d30;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropbtn:hover, .dropbtn:focus {
+            background-color: #dfc29000;
+            color: #004d30;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #dfc290de;
+            min-width: 100vw;
+            overflow: auto;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown a:hover {background-color: #b58952;}
+
+        .container {
+                min-height: 100%;
+                display: block;
+                position: relative;
+                overflow: hidden;
+                padding-bottom: 20px;
+        }
+
+        .logo {
+            height: auto;
+            width: 15vw;
+        }
+
+        .show {
+            display: block;
+        }
+
+        @media only screen and (max-width: 1500px) {
+            .body-text {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                box-sizing: border-box;
+                height: 35vh;
+                width: 35vw;
+                transform: translate(-50%, -30%); {# change this when information is available #}
+                color: #004d30;
+            }
+        }
+
+        @media only screen and (max-width:600px) {
+            body {
+                height: 100%;
+            {#overflow: hidden;#}
+                margin: 0;
+            }
+            html {
+            {#height: 100%;#}
+                background-image: url('/static/paper.png');
+                margin: 0;
+                /* Center and scale the image nicely */
+                background-position: center;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: cover;
+            }
+            .header-image {
+                width: 100%;
+            }
+            .wrapper-header {
+                position: relative;
+            }
+            .header-image {
+                position: relative;
+            }
+            .nav-image-wrapper {
+                display: none;
+            }
+            .vines {
+                width: 100vw;
+                height: 100%;
+            }
+            .header-image-indicator {
+		transform: translateX(170%);
+		{#wudth: 33vw;#}
+            }
+            .body-wrapper {
+                overflow: hidden;
+            }
+            .body-text {
+                transform: translate( -52%, -10%); {# change this when information is available #}
+                font-size: 2.5vw;
+                box-sizing: content-box;
+                width: 60vw;
+                height: 80vh;
+            }
+            .footer {
+                font-size: 1vw;
+                position: absolute;
+                bottom: 0;
+                height: 10px;
+                {#left: 38vw;#}
+                text-align: center;
+            }
+
+            .logo {
+                height: auto;
+                width: 25vw;
+                margin: 1vw;
+            }
+        }
+    </style>
+</head>
+<body>
+{% load staticfiles %}
+<div class="main">
+	<div class="container">
+    <div class="header-wrapper">
+	<div id='header-image-desktop' class="wrapper-header"><a href='{% url 'home' %}'><img class="header-image" src="{% static 'graphics/website_header.png' %}" alt="Secret Garden L M H Ball 2019"></a></div>
+        <div id='header-image-mobile' class="wrapper-header"><a href='{% url 'home' %}'><img class="header-image" src="{% static 'graphics/header-no-vines.png' %}" alt="Secret Garden L M H Ball 2019"></a></div>
+        <div class="nav-image-wrapper">
+            <a href="{% url 'music' %}"><img src="{% static 'graphics/Music.png' %}" alt="music" class="nav-image-music"></a>
+            <a href="{% url 'sponsors' %}"><img src="{% static 'graphics/Sponsors.png' %}" class="nav-image-sponsors" alt="sponsors"></a>
+            <a href="{% url 'tickets' %}"><img src="{% static 'graphics/Tickets.png' %}" class="nav-image-tickets" alt="tickets"></a>
+            <a href="{% url 'food_drink' %}"><img src="{% static 'graphics/F&D.png' %}" class="nav-image-food_drinks" alt="food and drinks"></a>
+            <a href="{% url 'committee' %}"><img src="{% static 'graphics/Committee.png' %}" class="nav-image-committee" alt="committee"></a>
+            <a href="{% url 'about' %}"><img src="{% static 'graphics/About.png' %}" class="nav-image-about" alt="about us"></a>
+        </div>
+    </div>
+    <div class="mobile-container" >
+        <div class="dropdown" style="text-align: center; left: 0vw; width: 20vw; height: 5vh; padding: 0; margin: 0;" >
+            <button onclick="myFunction()" class="dropbtn" style="width: 100vw; padding: 0; margin: 0;"><i class="fa fa-bars"></i></button>
+            <div id="myDropdown" class="dropdown-content">
+                <a href="{% url 'music' %}"><img src="{% static 'graphics/Music.png' %}" alt="music" style="width: 10vw;"></a>
+                <a href="{% url 'sponsors' %}"><img src="{% static 'graphics/Sponsors.png' %}" style="width: 14vw;" alt="sponsors"></a>
+                <a href="{% url 'tickets' %}"><img src="{% static 'graphics/Tickets.png' %}" style="width: 12vw;" alt="tickets"></a>
+                <a href="{% url 'food_drink' %}"><img src="{% static 'graphics/F&D.png' %}" style="width: 25vw;" alt="food and drinks"></a>
+                <a href="{% url 'committee' %}"><img src="{% static 'graphics/Committee.png' %}" style="width: 17vw;" alt="committee"></a>
+                <a href="{% url 'about' %}"><img src="{% static 'graphics/About.png' %}" style="width: 12vw;" alt="about us"></a>
+            </div>
+        </div>
+    </div>
+    <div class="body-wrapper">
+        <img src="{% static 'graphics/Sponsors.png' %}" alt="sponsors" class="header-image-indicator">
+        <img src="{% static 'graphics/vine_circle.png' %}" class="vines">
+        <div class="body-text">
+            <div class="logo-container">
+                <img class="logo" src="{% static 'sterling-logo.png' %}">
+                <img class="logo" src="{% static 'fixr-logo.png' %}">
+            </div>
+        </div>
+    </div>
+    <div class="footer" >
+        Copyright &copy; Lady Margaret Hall Ball 2019 - The Secret Garden
+    </div>
+</div>
+</div>
+
+<script>
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    };
+
+	$(window).resize(function() {
+// This will fire each time the window is resized:
+        if($(window).width() >= 600) {
+// if larger or equal
+            $('.mobile-container').hide();
+            $('#header-image-mobile').hide();
+            $('#header-image-desktop').show();
+        } else {
+// if smaller
+            $('.mobile-container').show();
+            $('#header-image-mobile').show();
+            $('#header-image-desktop').hide();
+        }
+    }).resize();
+</script>
+</body>

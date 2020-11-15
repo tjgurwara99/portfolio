@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Welcome To The Secret Garden</title>
+    <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville" rel="stylesheet">
+    {%  load static  %}
+    <script src="{% static 'node_modules/jquery/dist/jquery.js' %}"></script>
+    {#    <link href="{%  static 'node_modules/FlipClock-master/compiled/flipclock.css' %}">#}
+    <style>
+
+
+        html {
+            height: 100%;
+            background-image: url('/static/paper.png');
+            margin: 0;
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        body {
+            height: 100%;
+            margin: 0;
+        }
+        .main {
+            overflow: scroll;
+        }
+
+        .wrapper-header {
+            text-align: center;
+        }
+
+        .header-image {
+            width: 50%;
+        }
+
+        .nav-image-music {
+            position: absolute;
+            height: 2vw;
+            left: 31vw;
+            -webkit-transform: rotate(20deg) translateY(-1vw);
+            -moz-transform: rotate(20deg) translateY(-1vw);
+            -o-transform: rotate(20deg) translateY(-1vw);
+            -ms-transform: rotate(20deg) translateY(-1vw);
+            transform: rotate(20deg) translateY(-1vw);
+        }
+        .nav-image-sponsors {
+            position: absolute;
+            height: 2vw;
+            left: 37vw;
+            -webkit-transform: rotate(-15deg) translateY(-0.8vw);
+            -moz-transform: rotate(-15deg) translateY(-0.8vw);
+            -o-transform: rotate(-15deg) translateY(-0.8vw);
+            -ms-transform: rotate(-15deg) translateY(-0.8vw);
+            transform: rotate(-15deg) translateY(-0.8vw);
+        }
+        .nav-image-tickets{
+            position: absolute;
+            height: 2vw;
+            left: 43vw;
+            -webkit-transform: translateY(-1vw);
+            -moz-transform: translateY(-1vw);
+            -o-transform: translateY(-1vw);
+            -ms-transform: translateY(-1vw);
+            transform: translateY(-1vw);
+        }
+        .nav-image-food_drinks{
+            position: absolute;
+            height: 2vw;
+            left: 49vw;
+            -webkit-transform: rotate(-10deg) translateY(-0.25vw);
+            -moz-transform: rotate(-10deg) translateY(-0.25vw);
+            -o-transform: rotate(-10deg) translateY(-0.25vw);
+            -ms-transform: rotate(-10deg) translateY(-0.25vw);
+            transform: rotate(-10deg) translateY(-0.25vw);
+        }
+        .nav-image-committee{
+            position: absolute;
+            height: 2vw;
+            left: 59vw;
+            -webkit-transform: rotate(20deg) translateY(-1vw);
+            -moz-transform: rotate(20deg) translateY(-1vw);
+            -o-transform: rotate(20deg) translateY(-1vw);
+            -ms-transform: rotate(20deg) translateY(-1vw);
+            transform: rotate(20deg) translateY(-1vw);
+        }
+        .nav-image-about{
+            position: absolute;
+            height: 2vw;
+            left: 67vw;
+            -webkit-transform: rotate(-30deg) translateY(-1vw);
+            -moz-transform: rotate(-30deg) translateY(-1vw);
+            -o-transform: rotate(-30deg) translateY(-1vw);
+            -ms-transform: rotate(-30deg) translateY(-1vw);
+            transform: rotate(-30deg) translateY(-1vw);
+        }
+        .body-wrapper {
+            margin-top: 5%;
+            overflow: scroll;
+            position: relative;
+            text-align: center;
+            font-size: 1.2vw;
+        }
+        .body-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            box-sizing: border-box;
+            height: 20vh;
+            width: 25vw;
+            transform: translate(-50%, -50%); {# change this when information is available #}
+            color: #004d30;
+        }
+        .vines {
+            height: 90vh;
+            overflow: scroll;
+        }
+        .footer {
+            text-align: center;
+        }
+        .header-image-indicator {
+            width: 15vh;
+            position: absolute;
+            overflow: visible;
+            top: 22%;
+            left: 45%;
+        }
+        @media only screen and (max-width:600px) {
+            body {
+                height: 100%;
+                overflow: hidden;
+                margin: 0;
+            }
+            .header-image {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+{% load staticfiles %}
+<div class="main">
+    <div class="header-wrapper">
+        <div class="wrapper-header"><img class="header-image" src="{% static 'graphics/website_header.png' %}" alt="Secret Garden L M H Ball 2019"></div>
+        <div class="nav-image-wrapper">
+            <a href="{% url 'music' %}"><img src="{% static 'graphics/Music.png' %}" alt="music" class="nav-image-music"></a>
+            <a href="{% url 'sponsors' %}"><img src="{% static 'graphics/Sponsors.png' %}" class="nav-image-sponsors" alt="sponsors"></a>
+            <a href="{% url 'tickets' %}"><img src="{% static 'graphics/Tickets.png' %}" class="nav-image-tickets" alt="tickets"></a>
+            <a href="{% url 'food_drink' %}"><img src="{% static 'graphics/F&D.png' %}" class="nav-image-food_drinks" alt="food and drinks"></a>
+            <a href="{% url 'committee' %}"><img src="{% static 'graphics/Committee.png' %}" class="nav-image-committee" alt="committee"></a>
+            <a href="{% url 'about' %}"><img src="{% static 'graphics/About.png' %}" class="nav-image-about" alt="about us"></a>
+        </div>
+    </div>
+    <div class="body-wrapper">
+        <img src="{% static 'graphics/music.png' %}" alt="music" class="header-image-indicator">
+        <img src="{% static 'graphics/vine_circle.png' %}" class="vines">
+        <div class="body-text">
+           From dusk till dawn, the far-away land of Lady Margaret Hall will be transformed into an oasis of wild rhythms and intoxicating groove. The swing and funk, both fun and fierce, will have you dancing like nobody’s watching. Those who enter the Garden: prepare to be immersed in the infectious pulse of nature’s cadence; to be taken on a journey through the melodies of this mystical Eden; to weave a tapestry of movement. Come and bathe in the symphony of The Secret Garden!
+        </div>
+    </div>
+    <div class="footer">
+        <br/><br/><br/>
+        Copyright &copy; Lady Margaret Hall Ball 2019 - The Secret Garden
+    </div>
+</div>
+</body>
