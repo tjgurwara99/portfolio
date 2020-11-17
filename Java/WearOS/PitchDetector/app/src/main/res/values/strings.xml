@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">PitchDetector</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="title">Tuning</string>
+    <string name="pitch">0.0</string>
+    <string name="idle"></string>
+    <string name="ready">Ready</string>
+</resources>
